@@ -1,32 +1,255 @@
-.App {
-  text-align: center;
+/**
+* RESET CSS
+**/
+
+body {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 18px;
+  user-select: none;
+  background-color: #f5f5f5;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+input,
+button {
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  border: none;
+  background-color: transparent;
+}
+
+.container {
+  margin: 100px auto 0 auto;
+  width: 80%;
+  position: relative;
+}
+
+
+.popup {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.50);
+  z-index: 100;
+  display: grid;
+  justify-items: center;
   align-items: center;
+}
+
+.entry-form {
+  background-color: #fff;
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+  display: grid;
+  grid-auto-rows: 50px;
+  grid-row-gap: 20px;
+  position: relative;
+  justify-items: center;
+  align-items: center;
+  box-shadow: 0 0px 15px 4px rgba(0, 0, 0, 0.2);
+}
+
+.url-input {
+  display: block;
+  width: -webkit-fill-available;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+
+.decor-input {
+  width: -webkit-fill-available;
+  padding: 10px;
+  line-height: 40px;
+  color: #495057;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+
+/******
+* Header
+******/
+
+header {
+  /* display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center; */
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  height: 80px;
+  z-index: 100;
+}
+
+#header-child {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 80px;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.logo {
+  height: 32px;
+  width: auto;
+}
+
+.nav>a {
+  color: #000;
+  margin-right: 20px;
+}
+
+.user {
+  display: grid;
+  justify-items: right;
+}
+
+/******
+* Main deals grid
+******/
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 20px;
+}
+
+.feed {
+  background-color: #fff;
+}
+
+.entry-image img {
+  width: 100%;
+}
+
+/**
+* Add Single deal
+**/
+
+.add-single-deal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.add-deal-form {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+
+.deal-image {
+  grid-column: 1/1;
+  grid-row: 1/1;
+  display: grid;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.deal-image img {
+  max-width: 350px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.responsive-img {
+  width: 100%;
+  height: auto;
+}
+
+/******
+* Preloader
+******/
+
+.spinner-block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  z-index: 100;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin: 100px auto;
+}
+
+.double-bounce1,
+.double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #2ecc71;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-bounce {
+
+  0%,
+  100% {
+    -webkit-transform: scale(0.0)
   }
-  to {
-    transform: rotate(360deg);
+
+  50% {
+    -webkit-transform: scale(1.0)
+  }
+}
+
+@keyframes sk-bounce {
+
+  0%,
+  100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  }
+
+  50% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
   }
 }

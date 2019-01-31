@@ -1,26 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import ScraperInput from './components/Forms/ScraperInput';
+import Feeds from './components/Feeds.js';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      data: [],
+      isLoading: true
+    }
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <div className="App">
+          <Navbar />
+          <div className="container">
+            <Switch>
+              <Redirect exact from="/" to="/feeds" />
+              <Route path="/feeds" exact component={Feeds} />
+              <Route path="/add" exact component={ScraperInput} />
+
+              {/* <Route path="/actions" exact component={Actions} />
+              <Route path="/analytics" exact component={Analytics} /> */}
+            </Switch>
+          </div>
+        </div>
+      </Router>
     );
   }
 }
