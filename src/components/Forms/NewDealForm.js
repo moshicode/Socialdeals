@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 
 class NewDealForm extends Component {
@@ -10,7 +11,8 @@ class NewDealForm extends Component {
             price: props.tempScrapeData.price,
             image: props.tempScrapeData.image,
             url: props.tempScrapeData.url,
-            currency: props.tempScrapeData.currency
+            currency: props.tempScrapeData.currency,
+            toFeeds: false
         }
     }
 
@@ -20,7 +22,14 @@ class NewDealForm extends Component {
         this.setState({ [name]: value })
     }
 
-    onSubmit = async () => {
+    setRedirect = () => {
+        console.log('redirect')
+        this.setState({
+            toFeeds: true
+        })
+    }
+
+    addDealDB = async () => {
         await axios.post('http://localhost:3005/deals',
             {
                 title: this.state.name,
@@ -31,10 +40,17 @@ class NewDealForm extends Component {
             })
     }
 
+    onClickUpdateData = async (e) => {
+        await this.addDealDB();
+        await this.setRedirect();
+    }
+
 
 
     render() {
-        console.log(this.props.tempScrapeData)
+        if (this.state.toFeeds === true) {
+            return <Redirect to='/feeds' />
+        }
         return (
             <div className="add-single-deal">
                 <div className="deal-image">
@@ -50,7 +66,7 @@ class NewDealForm extends Component {
                     <label>
                         <input type="text" className="decor-input" name="currency" value={this.state.currency} onChange={this.handleChangeInput} />
                     </label>
-                    <button className="btn add-btn" onClick={this.onSubmit}>Post New Deal</button>
+                    <button className="btn add-btn" onClick={this.onClickUpdateData}>Post New Deal</button>
                 </div>
             </div>
         );
