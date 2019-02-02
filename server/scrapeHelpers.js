@@ -8,7 +8,7 @@ class scrapeHelpers {
             if (url.includes(site)) {
                 return await Manager[site].runScrape(url)
             } else {
-                console.log('not found' + site)
+                console.log('not found ' + site)
             }
         }
     }
