@@ -5,11 +5,10 @@ class AmazonScrape {
     async runScrape(url) {
         const data = await rp(url)
         const $ = cheerio.load(data)
-        console.log($)
         const itemRawData = {
-            name: $('productTitle').text(),
+            name: $('#cerberus-data-metrics'),
             // url: $('meta[itemprop="url"]').attr('content'),
-            price: $('#priceblock_ourprice').text()
+            // price: $('#priceblock_ourprice').text()
             // currency: $("*[itemprop = 'priceCurrency']").attr('content'),
             // image: $("meta[property='og:image']").attr("content")
         }

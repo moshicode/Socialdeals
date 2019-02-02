@@ -5,12 +5,13 @@ class ebayScrape {
     async runScrape(url) {
         const data = await rp(url)
         const $ = cheerio.load(data)
+
         const itemRawData = {
-            name: $('[itemprop="name"]').text()
-            // url: $('meta[itemprop="url"]').attr('content'),
-            // price: $('[itemprop="price"]').text() !== '' ? $('[itemprop = "price"]').text() : $('[itemprop = "lowPrice"]').text(),
-            // currency: $("*[itemprop = 'priceCurrency']").attr('content'),
-            // image: $("meta[property='og:image']").attr("content")
+            name: $('meta[name="twitter:title"]').attr('content'),
+            url: $('meta[property="og:url"]').attr("content"),
+            price: $('span[itemprop="price"]').attr('content'),
+            currency: $('*[itemprop = "priceCurrency"]').attr('content'),
+            image: $('meta[property="og:image"]').attr("content"),
         }
         return itemRawData
     }
