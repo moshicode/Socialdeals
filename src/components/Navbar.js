@@ -4,25 +4,33 @@ import logo from '../images/logo.png';
 
 const Navbar = () => {
     let currentPage = window.location.pathname.substring(1)
-    let pages = ['Feeds', 'Top 10', 'Add']
+    console.log(currentPage)
+    let pages = ['Feeds', 'Hot Deals', 'Add']
     return (
-        <header>
-            <div id="header-child">
-                <div id="logo">
+
+        <div className="header-wrapper">
+            <header className="header">
+                <div className="logo">
                     <Link to='/'>
                         <img className="logo" src={logo} alt="Socialdeals" />
                     </Link>
                 </div>
-                <div className="nav">
+                <nav className="main-nav">
                     {pages.map((page, index) => currentPage === page ?
                         <Link key={index} to={page} className="active">{page}</Link> :
                         <Link key={index} to={page.toLowerCase()}>{page}</Link>)}
+                </nav>
+                <div className="user-minidash">
+                    <Link to='/add'>
+                        <i className="fa fa-plus" aria-hidden="true"></i>
+                    </Link>
+                    {/* <button className="btn btn-add-deal"><i className="fa fa-plus" aria-hidden="true"></i></button> */}
                 </div>
-                <div className="user">
-                    <button className="btn btn-add-deal"><i className="fa fa-plus" aria-hidden="true"></i></button>
-                </div>
-            </div>
-        </header>
+            </header>
+        </div>
+
+
+
     );
 }
 
