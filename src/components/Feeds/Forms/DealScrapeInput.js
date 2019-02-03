@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+// import DealForm from './Forms/DealForm';
 
-class InputScraper extends Component {
+class DealScrapeInput extends Component {
     constructor() {
         super()
         this.state = {
@@ -21,22 +22,20 @@ class InputScraper extends Component {
         this.setState({
             tempScrapeData: data.data
         })
-        console.log(this.state)
     }
 
     render() {
         return (
-            < React.Fragment >
-                <h3>Put the ats Url Deal</h3>
-                <div className="link-section">
-                    <label>link
-                    <input type="text" name="url" value={this.state.url} onChange={this.handleChangeInput} placeholder="https://" />
-                    </label>
-                    <button className="btn add-btn" onClick={this.getScrapeData}>Add New Client</button>
+            <div className="form">
+                <h2>Share a new deal</h2>
+                <div className="field">
+                    <label>URL</label>
+                    <input type="url" name="url" placeholder="https://" value={this.state.url} onChange={this.handleChangeInput} />
                 </div>
-            </React.Fragment >
+                <div className="submit" onClick={this.getScrapeData}>Submit</div>
+            </div>
         )
     }
 }
 
-export default InputScraper
+export default DealScrapeInput

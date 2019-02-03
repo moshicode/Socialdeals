@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
 
-class NewDealForm extends Component {
+class DealForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -61,7 +61,7 @@ class NewDealForm extends Component {
                         <input type="url" placeholder="Product URL..." className="decor-input" name="name" value={this.state.name} onChange={this.handleChangeInput} />
                     </label>
                     <label>
-                        <input type="text" className="decor-input" name="price" value={this.state.price} onChange={this.handleChangeInput} />
+                        <input type="number" className="decor-input" name="price" value={this.state.price} onChange={this.handleChangeInput} />
                     </label>
                     <label>
                         <input type="text" className="decor-input" name="currency" value={this.state.currency} onChange={this.handleChangeInput} />
@@ -73,4 +73,4 @@ class NewDealForm extends Component {
     }
 }
 
-export default NewDealForm
+export default DealForm

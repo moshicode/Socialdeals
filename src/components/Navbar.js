@@ -4,7 +4,6 @@ import logo from '../images/logo.png';
 
 const Navbar = () => {
     let currentPage = window.location.pathname.substring(1)
-    console.log(currentPage)
     let pages = ['Feeds', 'Hot Deals', 'Add']
     return (
         <div className="header-wrapper">

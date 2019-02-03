@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 // const scrapeManager = require('../scrapeManager');
-const Deal = require('../model/DealModel')
+const Deal = require('../models/Deal')
 const Helpers = require('../scrapeHelpers');
 
 router.get('/sanity', function (req, res) {

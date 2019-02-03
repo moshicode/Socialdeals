@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import FeedsGrid from './Feeds/FeedsGrid'
+import DealCard from './Feeds/DealCard'
 import Loading from './Loading';
-import ScraperInput from './Forms/ScraperInput'
+// import ScraperInput from './Forms/ScraperInput'
 
 class Feeds extends Component {
     constructor() {
@@ -25,11 +25,10 @@ class Feeds extends Component {
 
     render() {
         if (this.state.isLoading) { return <Loading /> }
-        console.log(this.state.data)
         return (
-            <div className="main-grid">
+            <div className="cards-container">
                 {/* {this.state.showPopup && <ScraperInput showPopup={this.state.showPopup} />} */}
-                {this.state.data.map((d, index) => <FeedsGrid key={index} data={d} />)}
+                {this.state.data.map((d, index) => <DealCard key={index} data={d} />)}
             </div>
         );
     }
