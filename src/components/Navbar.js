@@ -7,7 +7,6 @@ const Navbar = () => {
     console.log(currentPage)
     let pages = ['Feeds', 'Hot Deals', 'Add']
     return (
-
         <div className="header-wrapper">
             <header className="header">
                 <div className="logo">
@@ -24,7 +23,6 @@ const Navbar = () => {
                     <Link to='/add'>
                         <i className="fa fa-plus" aria-hidden="true"></i>
                     </Link>
-                    {/* <button className="btn btn-add-deal"><i className="fa fa-plus" aria-hidden="true"></i></button> */}
                 </div>
             </header>
         </div>
