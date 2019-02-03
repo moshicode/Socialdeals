@@ -30,7 +30,7 @@ class DealForm extends Component {
     }
 
     addDealDB = async () => {
-        await axios.post('http://localhost:3005/deals',
+        await axios.post('http://localhost:3005/api/deals',
             {
                 title: this.state.name,
                 image: this.state.image,
