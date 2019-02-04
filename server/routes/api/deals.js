@@ -11,9 +11,8 @@ router.get('/', function (req, res) {
 
 // POST ROUTE
 router.post('/', function (req, res) {
-    let c = new Deal(req.body)
-    console.log(c)
-    c.save()
+    let newDeal = new Deal(req.body)
+    newDeal.save()
     res.end()
 })
 
