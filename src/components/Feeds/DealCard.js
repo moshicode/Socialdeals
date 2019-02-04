@@ -10,7 +10,7 @@ class DealCard extends Component {
                     <h3 className="title">{title}</h3>
                     <p className="text"></p>
                     <p className="price">{price}<span className="currency">{currency}</span></p>
-                    <a href={url} target="_blank">Buy Now</a>
+                    <a href={url} target="_blank" rel="noopener noreferrer">Buy Now</a>
                 </div>
             </div>
         );
