@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 // import ScraperInput from './components/Forms/ScraperInput';
 import Feeds from './components/Feeds.js';
 import AddNewDeal from './components/Feeds/AddNewDeal'
+import Register from './components/Forms/Register'
 import './App.css';
 
 class App extends Component {
@@ -22,6 +23,8 @@ class App extends Component {
           <main className="container">
             <Switch>
               <Redirect exact from="/" to="/feeds" />
+              <Route path="/register" exact component={Register} />
+              {/* <Route path="/login" exact component={Login} /> */}
               <Route path="/feeds" exact component={Feeds} />
               <Route path="/add" exact component={AddNewDeal} />
             </Switch>

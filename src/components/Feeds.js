@@ -10,7 +10,8 @@ class Feeds extends Component {
         this.state = {
             data: [],
             showPopup: false,
-            isLoading: true
+            isLoading: true,
+            numCards: 8
         }
     }
 
@@ -23,13 +24,29 @@ class Feeds extends Component {
         this.setState({ data: res.data, isLoading: false })
     }
 
+    loadMore = () => {
+
+
+        this.setState({
+            numCards: this.state.numCards + 8
+        })
+    }
+
     render() {
         if (this.state.isLoading) { return <Loading /> }
         return (
-            <div className="cards-container">
-                {/* {this.state.showPopup && <ScraperInput showPopup={this.state.showPopup} />} */}
-                {this.state.data.map((d, index) => <DealCard key={index} data={d} />)}
-            </div>
+            <React.Fragment>
+                <div className="cards-container">
+                    {/* {this.state.showPopup && <ScraperInput showPopup={this.state.showPopup} />} */}
+                    {/* {this.state.data.map((d, index) => <DealCard key={index} data={d} />)} */}
+                    {this.state.data.slice(0, this.state.numCards).map((cardData, index) => <DealCard key={index} data={cardData} />)}
+                </div>
+                <div className="pagination">
+                    {this.state.numCards < this.state.data.length &&
+                        <button onClick={this.loadMore} type="button" className="load-more">Load more</button>
+                    }
+                </div>
+            </React.Fragment>
         );
     }
 }
