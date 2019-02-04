@@ -2,11 +2,11 @@
 const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
-// const api = require('./server/routes/api')
 
 const deals = require('./server/routes/api/deals')
 const users = require('./server/routes/api/users')
 const scrape = require('./server/routes/api/scrape')
+const currencies = require('./server/routes/api/currencies')
 
 
 // Mongoose setup
@@ -26,13 +26,10 @@ app.use(function (req, res, next) {
     next()
 })
 
-// app.use('/', api)
-// Use Routes
 app.use('/api/deals', deals)
 app.use('/api/users', users)
 app.use('/api/scrape', scrape)
-
-
+app.use('/api/currencies', currencies)
 
 app.listen(3005, function () {
     console.log(`Server is Running with port 3005!`)
