@@ -29,6 +29,12 @@ const DealSchema = new Schema({
     image: {
         type: String,
         required: true
+    },
+    coupon: {
+        type: String
+    },
+    dealEndDate: {
+        type: Date
     }
 })
 
