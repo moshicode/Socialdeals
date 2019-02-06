@@ -6,7 +6,7 @@
   --primary: #ff4522;
   --dark: #151942;
   --light: #fff;
-  --lightgray: #f5f5f5;
+  --lightgray: #fafafa;
 }
 
 /**
@@ -182,16 +182,35 @@ header {
   align-items: center;
   width: 90%;
   margin: 0 auto;
-  max-width: 1280px;
+  max-width: 1240px;
 }
 
 .user-minidash {
-  justify-self: right;
+  grid-column: 3/3;
+  justify-self: end;
+  justify-items: start;
+  display: grid;
+  grid-column-gap: 10px;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 1fr;
+  width: 100%;
+  max-width: 200px;
+  align-items: center;
 }
 
 .main-nav>a {
-  color: #000;
+  color: var(--dark);
   margin-right: 20px;
+}
+
+.reg-log-btn {
+  border: 1px solid #eee;
+  padding: 6px 10px;
+  width: 100%;
+  font-size: 16px;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .add-icon {
@@ -237,6 +256,8 @@ footer {
   grid-gap: 20px;
   border-radius: 10px;
   grid-template-rows: minmax(190px, 200px);
+  box-shadow: 0px 0px 6px #f5f5f5;
+  border: 1px solid #f1f1f1;
 }
 
 .card img {
@@ -246,28 +267,37 @@ footer {
   justify-self: center;
 }
 
+.info .title {
+  text-align: center;
+}
+
 /**
 * Pagination
 **/
 
 .pagination {
-  width: fit-content;
-  margin: 20px auto;
+  margin: 25px auto;
+  width: 100%;
+  max-width: 200px;
+  text-align: center;
 }
 
 .load-more {
-  background-color: var(--dark);
+  background-color: transparent;
+  border: 2px solid var(--dark);
   padding: 10px 20px;
-  color: #fff;
-  border: none;
+  color: var(--dark);
   cursor: pointer;
   font-weight: 600;
   text-transform: uppercase;
   font-size: 16px;
+  width: 100%;
+  max-width: 400px;
 }
 
 .load-more:hover {
-  background-color: var(--primary);
+  background-color: var(--dark);
+  color: var(--light);
   transition: 0.5s;
 }
 

@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../images/socialdeals-logo-op.png';
 
-const Navbar = () => {
+const Navbar = (userAuth) => {
     let currentPage = window.location.pathname.substring(1)
     let pages = ['Feeds', 'Hot Deals', 'Add']
+    let userAuth2 = userAuth
     return (
         <div className="header-wrapper">
             <header className="header">
@@ -23,10 +24,15 @@ const Navbar = () => {
                         <i className="fa fa-plus add-icon" aria-hidden="true"></i>
                     </Link>
                     <Link to='register'>
-                        <button>Sign Up</button>
+                        <div className="reg-log-btn">
+                            Sign Up
+                        </div>
+                        {/* <button>Sign Up</button> */}
                     </Link>
                     <Link to='login'>
-                        <button>Log In</button>
+                        <div className="reg-log-btn">
+                            Log In
+                        </div>
                     </Link>
                 </div>
             </header>

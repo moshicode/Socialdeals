@@ -18,15 +18,21 @@ class DealCard extends Component {
             <div className="card fade-in">
                 <img src={image} alt={title} />
                 <div className="info">
-                    <h5 className="title">{title}</h5>
+                    <div className="title">
+                        <h5 >{title}</h5>
+                    </div>
                     <div className="meta-info">
-                        <div>Publish By <span className="publish-by">{username}</span></div>
+                        <div>Publish by <span className="publish-by">{username}</span></div>
                         <p><Moment fromNow>{date}</Moment></p>
                     </div>
                     {/* <p className="username">{username}, </p> */}
                     <p className="price">{price}<span className="currency">{currency}</span></p>
-                    <p className="likes">{likes.length}</p>
-                    <button onClick={this.like}>Like</button>
+                    <div className="like">
+                        <span>{likes.length}</span>
+                        <span onClick={this.like}>Like</span>
+                    </div>
+                    {/* <p className="likes">{likes.length}</p>
+                    <button onClick={this.like}>Like</button> */}
                     <a href={url} target="_blank" rel="noopener noreferrer">Buy Now</a>
                 </div>
             </div>

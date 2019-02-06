@@ -29,7 +29,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Navbar />
+          <Navbar userAuth={this.state.userAuth} />
           <main className="container">
             <Switch>
               <Redirect exact from="/" to="/feeds" />
