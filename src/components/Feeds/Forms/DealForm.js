@@ -7,7 +7,8 @@ class DealForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            name: props.tempScrapeData.name,
+            username: props.userAuth.username,
+            name: '',
             price: props.tempScrapeData.price,
             image: props.tempScrapeData.image,
             url: props.tempScrapeData.url,
@@ -32,6 +33,7 @@ class DealForm extends Component {
     addDealDB = async () => {
         await axios.post('http://localhost:3005/api/deals',
             {
+                username: this.state.username,
                 title: this.state.name,
                 image: this.state.image,
                 price: this.state.price,
@@ -45,8 +47,6 @@ class DealForm extends Component {
         await this.setRedirect();
     }
 
-
-
     render() {
         if (this.state.toFeeds === true) {
             return <Redirect to='/feeds' />
@@ -58,7 +58,7 @@ class DealForm extends Component {
                 </div>
                 <div className="add-deal-form">
                     <label>
-                        <input type="url" placeholder="Product URL..." className="decor-input" name="name" value={this.state.name} onChange={this.handleChangeInput} />
+                        <input type="url" placeholder="Deal title..." className="decor-input" name="name" value={this.state.name} onChange={this.handleChangeInput} />
                     </label>
                     <label>
                         <input type="number" className="decor-input" name="price" value={this.state.price} onChange={this.handleChangeInput} />

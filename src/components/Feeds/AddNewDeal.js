@@ -44,7 +44,7 @@ class AddNewDeal extends Component {
             if (this.state.isLoading) { return <Loading /> }
             return (
                 <div className="form">
-                    <DealForm tempScrapeData={this.state.tempScrapeData} />
+                    <DealForm tempScrapeData={this.state.tempScrapeData} userAuth={this.props.userAuth} />
                 </div>
             );
         }

@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Redirect } from 'react-router-dom';
+
+import axios from 'axios';
 
 class Register extends Component {
     constructor() {
@@ -10,26 +13,38 @@ class Register extends Component {
         }
     }
 
-    changeHandler = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
+    onChange = (e) => { this.setState({ [e.target.name]: e.target.value }) }
+
+    onSubmit = async (e) => {
+        e.preventDefault()
+        const newUser = {
+            username: this.state.username,
+            email: this.state.email,
+            password: this.state.password
+        }
+
+        await axios.post('http://localhost:3005/api/users/register', newUser)
+        console.log(newUser)
     }
 
 
     render() {
+        if (this.props.userAuth.id) {
+            console.log('if user logged in')
+        }
         return (
             <div className="register-form">
                 <h1>Register</h1>
-                <form>
+                <form onSubmit={this.onSubmit}>
                     <div className="field">
                         <label>Username</label>
                         <input
                             type="text"
                             placeholder="username"
                             name="username"
+                            autoComplete="username"
                             value={this.state.username}
-                            onChange={this.changeHandler} />
+                            onChange={this.onChange} />
                     </div>
                     <div className="field passwords">
                         <div className="password">
@@ -38,8 +53,9 @@ class Register extends Component {
                                 type="password"
                                 placeholder="Password"
                                 name="password"
+                                autoComplete="new-password"
                                 value={this.state.password}
-                                onChange={this.changeHandler} />
+                                onChange={this.onChange} />
                         </div>
                         <div className="password">
                             <label>Password</label>
@@ -47,11 +63,11 @@ class Register extends Component {
                                 type="password"
                                 placeholder="Password"
                                 name="password"
+                                autoComplete="new-password"
                                 value={this.state.password}
-                                onChange={this.changeHandler} />
+                                onChange={this.onChange} />
                         </div>
                     </div>
-
                     <div className="field">
                         <label>Email</label>
                         <input
@@ -59,7 +75,7 @@ class Register extends Component {
                             placeholder="Email"
                             name="email"
                             value={this.state.email}
-                            onChange={this.changeHandler} />
+                            onChange={this.onChange} />
                     </div>
                     <input type="submit" />
                 </form>

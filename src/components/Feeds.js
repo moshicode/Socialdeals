@@ -11,12 +11,17 @@ class Feeds extends Component {
             data: [],
             showPopup: false,
             isLoading: true,
-            numCards: 8
+            numCards: 12
         }
     }
 
     async getDeals() {
         return await axios.get("http://localhost:3005/api/deals")
+    }
+
+    updateFeed = async () => {
+        let deals = await this.getDeals()
+        this.setState({ data: deals.data, isLoading: false })
     }
 
     async componentDidMount() {
@@ -25,8 +30,6 @@ class Feeds extends Component {
     }
 
     loadMore = () => {
-
-
         this.setState({
             numCards: this.state.numCards + 8
         })
@@ -39,7 +42,7 @@ class Feeds extends Component {
                 <div className="cards-container">
                     {/* {this.state.showPopup && <ScraperInput showPopup={this.state.showPopup} />} */}
                     {/* {this.state.data.map((d, index) => <DealCard key={index} data={d} />)} */}
-                    {this.state.data.slice(0, this.state.numCards).map((cardData, index) => <DealCard key={index} data={cardData} />)}
+                    {this.state.data.slice(0, this.state.numCards).map((cardData, index) => <DealCard key={index} data={cardData} userAuth={this.props.userAuth} updateFeed={this.updateFeed} />)}
                 </div>
                 <div className="pagination">
                     {this.state.numCards < this.state.data.length &&

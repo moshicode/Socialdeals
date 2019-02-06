@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../images/logo.png';
+import logo from '../images/socialdeals-logo-op.png';
 
 const Navbar = () => {
     let currentPage = window.location.pathname.substring(1)
@@ -20,7 +20,13 @@ const Navbar = () => {
                 </nav>
                 <div className="user-minidash">
                     <Link to='/add'>
-                        <i className="fa fa-plus" aria-hidden="true"></i>
+                        <i className="fa fa-plus add-icon" aria-hidden="true"></i>
+                    </Link>
+                    <Link to='register'>
+                        <button>Sign Up</button>
+                    </Link>
+                    <Link to='login'>
+                        <button>Log In</button>
                     </Link>
                 </div>
             </header>

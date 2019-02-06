@@ -32,13 +32,17 @@ router.post('/register', (req, res) => {
 router.post('/login', (req, res) => {
     const username = req.body.username
     const password = req.body.password
-
     User.findOne({ username, password })
         .then(user => {
             if (!user) {
+                console.log("Not found user")
                 return res.status(404).json({ username: 'User not found' })
             } else {
-                return res.status(200).send()
+                console.log(user)
+                return res.status(200).send({
+                    username: user.username,
+                    id: user._id
+                })
             }
         })
 })
