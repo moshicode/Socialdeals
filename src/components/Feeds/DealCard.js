@@ -22,18 +22,19 @@ class DealCard extends Component {
                         <h5 >{title}</h5>
                     </div>
                     <div className="meta-info">
-                        <div>Publish by <span className="publish-by">{username}</span></div>
-                        <p><Moment fromNow>{date}</Moment></p>
+                        <div className="publish">{username}</div>
+                        <div className="publish-date"><Moment fromNow>{date}</Moment></div>
+                        <div className="likes">{likes.length > 1 ? likes.length + ' Likes' : likes.length + ' Like'}</div>
+                        <i className="fa fa-plus add-icon" onClick={this.like}></i>
                     </div>
+                    <div className="action">
+                        <div className="price">{price}<span className="currency">{currency}</span></div>
+                        <div className="buy-now"><a href={url} target="_blank" rel="noopener noreferrer">Buy Now</a></div>
+                    </div>
+
                     {/* <p className="username">{username}, </p> */}
-                    <p className="price">{price}<span className="currency">{currency}</span></p>
-                    <div className="like">
-                        <span>{likes.length}</span>
-                        <span onClick={this.like}>Like</span>
-                    </div>
                     {/* <p className="likes">{likes.length}</p>
                     <button onClick={this.like}>Like</button> */}
-                    <a href={url} target="_blank" rel="noopener noreferrer">Buy Now</a>
                 </div>
             </div>
         );

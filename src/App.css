@@ -213,6 +213,11 @@ header {
   text-align: center;
 }
 
+.reg-log-btn:hover {
+  border: 1px solid var(--dark);
+  transition: 1.5s;
+}
+
 .add-icon {
   color: var(--dark);
 }
@@ -251,7 +256,6 @@ footer {
 
 .card {
   background-color: #fff;
-  padding: 5px;
   display: grid;
   grid-gap: 20px;
   border-radius: 10px;
@@ -270,6 +274,72 @@ footer {
 .info .title {
   text-align: center;
 }
+
+
+.info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: min-content 1fr 1fr;
+  font-size: 15px;
+  align-items: center;
+  justify-items: center;
+}
+
+.info .title {
+  text-align: center;
+  grid-column: 1/4;
+  grid-row: 1/3;
+  font-size: 20px;
+}
+
+.meta-info {
+  grid-column: 1/4;
+  grid-row: 3/4;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-self: center;
+  box-sizing: border-box;
+  color: #a5a5a5;
+  font-size: 13px;
+  text-align: center;
+}
+
+.price {
+  color: var(--primary);
+}
+
+.buy-now a {
+  color: var(--dark);
+}
+
+.like {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  height: 40px;
+  width: 40px;
+  background-color: var(--dark);
+  border-radius: 50%;
+}
+
+.action {
+  grid-column: 1/4;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  border-bottom: none !important;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.info>div {
+  border-bottom: 1px solid #eee;
+  width: 100%;
+  padding: 10px 0;
+}
+
+
 
 /**
 * Pagination
