@@ -17,6 +17,11 @@ class App extends Component {
     }
   }
 
+  logoutClearState = () => {
+    localStorage.clear()
+    this.setState({ userAuth: '' })
+  }
+
   getLoggedInUser() {
     return { username: localStorage.username, id: localStorage.id } || ''
   }
@@ -29,7 +34,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Navbar userAuth={this.state.userAuth} />
+          <Navbar userAuth={this.state.userAuth} logoutClearState={this.logoutClearState} />
           <main className="container">
             <Switch>
               <Redirect exact from="/" to="/feeds" />

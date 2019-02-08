@@ -57,7 +57,7 @@ class Register extends Component {
                                 value={this.state.password}
                                 onChange={this.onChange} />
                         </div>
-                        <div className="password">
+                        {/* <div className="password">
                             <label>Password</label>
                             <input
                                 type="password"
@@ -66,7 +66,7 @@ class Register extends Component {
                                 autoComplete="new-password"
                                 value={this.state.password}
                                 onChange={this.onChange} />
-                        </div>
+                        </div> */}
                     </div>
                     <div className="field">
                         <label>Email</label>
@@ -77,7 +77,7 @@ class Register extends Component {
                             value={this.state.email}
                             onChange={this.onChange} />
                     </div>
-                    <input type="submit" />
+                    <button type="submit" className="action-btn">Sign Up</button>
                 </form>
             </div>
         );

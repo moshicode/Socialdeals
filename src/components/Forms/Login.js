@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
+
 
 class Login extends Component {
     constructor() {
@@ -36,7 +38,7 @@ class Login extends Component {
 
     render() {
         if (this.props.userAuth.username) {
-            return this.showLoggedInuser()
+            return <Redirect to="/" />
         }
         return (
             <div className="login-form">
@@ -62,7 +64,7 @@ class Login extends Component {
                             value={this.state.password}
                             onChange={this.onChange} />
                     </div>
-                    <input type="submit" />
+                    <button type="submit" className="action-btn">Log In</button>
                 </form>
             </div>
         );

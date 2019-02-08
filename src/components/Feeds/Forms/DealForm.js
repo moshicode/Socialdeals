@@ -8,7 +8,7 @@ class DealForm extends Component {
         super(props)
         this.state = {
             username: props.userAuth.username,
-            name: '',
+            name: props.tempScrapeData.name,
             price: props.tempScrapeData.price,
             image: props.tempScrapeData.image,
             url: props.tempScrapeData.url,
@@ -66,7 +66,7 @@ class DealForm extends Component {
                     <label>
                         <input type="text" className="decor-input" name="currency" value={this.state.currency} onChange={this.handleChangeInput} />
                     </label>
-                    <button className="btn add-btn" onClick={this.onClickUpdateData}>Post New Deal</button>
+                    <button className="btn add-btn action-btn" onClick={this.onClickUpdateData}>Post New Deal</button>
                 </div>
             </div>
         );

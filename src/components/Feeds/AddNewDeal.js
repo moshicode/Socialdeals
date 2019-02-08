@@ -31,13 +31,15 @@ class AddNewDeal extends Component {
     render() {
         if (this.state.tempScrapeData === '') {
             return (
-                <div className="form">
-                    <h2>Share a new deal</h2>
-                    <div className="field">
-                        <label>URL</label>
-                        <input type="url" name="url" placeholder="https://" value={this.state.url} onChange={this.handleChangeInput} required />
-                    </div>
-                    <div className="submit" onClick={this.getScrapeData}>Submit</div>
+                <div className="add-form">
+                    <h1>Share a new deal</h1>
+                    <form>
+                        <div className="field">
+                            <label>URL</label>
+                            <input type="url" name="url" placeholder="https://" value={this.state.url} onChange={this.handleChangeInput} required />
+                        </div>
+                        <div className="action-btn" onClick={this.getScrapeData}>Submit</div>
+                    </form>
                 </div>
             )
         } else {
