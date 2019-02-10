@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar';
-// import ScraperInput from './components/Forms/ScraperInput';
 import Feeds from './components/Feeds.js';
 import AddNewDeal from './components/Feeds/AddNewDeal'
 import Register from './components/Forms/Register'
 import Login from './components/Forms/Login'
-import './App.css';
+// import './App.css';
 
 class App extends Component {
   constructor() {
