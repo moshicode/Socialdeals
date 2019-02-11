@@ -32,14 +32,5 @@ class Navbar extends Component {
     }
 }
 
-// const Navbar = (userAuth, logoutClearState) => {
-
-//     return (
-
-
-
-//     );
-// }
-
 export default Navbar;
 
