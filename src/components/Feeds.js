@@ -16,7 +16,7 @@ class Feeds extends Component {
     }
 
     async getDeals() {
-        return await axios.get("http://localhost:3005/api/deals")
+        return await axios.get("/api/deals")
     }
 
     updateFeed = async () => {

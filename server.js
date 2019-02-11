@@ -11,9 +11,10 @@ const currencies = require('./server/routes/api/currencies')
 
 // Mongoose setup
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/socialdealsDB', { useNewUrlParser: true })
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/');
 
 const app = express()
+app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.static(path.join(__dirname, 'src')))
 app.use(express.static(path.join(__dirname, 'node_modules')))
 app.use(bodyParser.json())
@@ -31,6 +32,9 @@ app.use('/api/users', users)
 app.use('/api/scrape', scrape)
 app.use('/api/currencies', currencies)
 
-app.listen(3005, function () {
-    console.log(`Server is Running with port 3005!`)
-})
+app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+const PORT = 8080
+app.listen(process.env.PORT || PORT);

@@ -16,7 +16,7 @@ class Login extends Component {
 
     onSubmit = async (e) => {
         e.preventDefault()
-        let user = await axios.post('http://localhost:3005/api/users/login', {
+        let user = await axios.post('/api/users/login', {
             username: this.state.username,
             password: this.state.password
         })

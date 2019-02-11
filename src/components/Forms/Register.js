@@ -23,7 +23,7 @@ class Register extends Component {
             password: this.state.password
         }
 
-        await axios.post('http://localhost:3005/api/users/register', newUser)
+        await axios.post('/api/users/register', newUser)
         console.log(newUser)
     }
 
