@@ -12,6 +12,7 @@ const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/socialdeals');
 
 const app = express();
+app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.static(path.join(__dirname, 'src')))
 app.use(express.static(path.join(__dirname, 'node_modules')))
 app.use(bodyParser.json())
@@ -22,8 +23,10 @@ app.use('/api/deals', deals)
 app.use('/api/users', users)
 app.use('/api/scrape', scrape)
 app.use('/api/currencies', currencies)
-app.get('/', (req, res) => res.send('Hello'))
 
+app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 const port = process.env.PORT || 5000
 
 app.listen(port, () => console.log(`Server running on port ${port}`))
