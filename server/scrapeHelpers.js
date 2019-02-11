@@ -1,7 +1,6 @@
 const Manager = require('./scrapeManager');
 
 class scrapeHelpers {
-
     async checkLegitimateUrl(url) {
         let LegitimateSites = (Object.keys(Manager))
         for (let site of LegitimateSites) {
@@ -12,7 +11,6 @@ class scrapeHelpers {
             }
         }
     }
-
 }
 
 let Helpers = new scrapeHelpers

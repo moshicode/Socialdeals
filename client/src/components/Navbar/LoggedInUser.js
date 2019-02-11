@@ -21,10 +21,4 @@ class LoggedInUser extends Component {
     }
 }
 
-// const LoggedInUser = () => {
-//     return (
-
-//     )
-// }
-
 export default LoggedInUser
