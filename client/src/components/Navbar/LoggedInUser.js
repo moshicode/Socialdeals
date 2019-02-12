@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 class LoggedInUser extends Component {
 
     render() {
-        console.log(this.props)
         const { userAuth } = this.props
         return (
             <React.Fragment>

@@ -8,7 +8,6 @@ class Navbar extends Component {
     render() {
         let currentPage = window.location.pathname.substring(1)
         let pages = ['Feed', 'Hot Deals', 'Add']
-        console.log(this.props)
         return (
             <div className="header-wrapper">
                 <header className="header">

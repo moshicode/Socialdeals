@@ -6,22 +6,12 @@ import Moment from 'react-moment';
 
 class DealCard extends Component {
     like = async () => {
-        console.log(this.props.data.likes)
-        console.log(this.props.userAuth.id)
         await axios.post(`/api/deals/like/${this.props.data._id}/${this.props.userAuth.id}`)
         this.props.updateFeed()
     }
 
-    checkLikes = () => {
-        console.log('change')
-    }
-
     render() {
         let { title, price, currency, image, url, likes, username, date } = this.props.data
-        if (this.props.userAuth.id) {
-            console.log(this.props.userAuth.id)
-        }
-        console.log(likes)
         return (
             <div className="card fade-in">
                 <img src={image} alt={title} />
